@@ -22,28 +22,30 @@ class Database:
         self.con.commit()
         return True
 
-    def get_value(self, tableName, argument, selector, value):
-        self.cur.execute("SELECT {1} from {0} where {2} = \'{3}\';".format(tableName, argument, selector, value))
-        self.con.commit()
-        return self.cur.fetchall()[0][0]
+    # additional functions for db
 
-    def update(self, tableName, argument, selector, newValue, findValue):
-        self.cur.execute("UPDATE {0} set {1} = \'{3}\' where {2} = \'{4}\';".format(tableName, argument, selector, newValue, findValue))
-        self.con.commit()
-        return True
-
-    def remove(self, tableName, selector, value):
-        self.cur.execute("DELETE from {0} where {1} = \'{2}\';".format(tableName, selector, value))
-        self.con.commit()
-        return True
-
-    def get_all(self, tableName):
-        self.cur.execute("SELECT * from {0};".format(tableName))
-        self.con.commit()
-        return self.cur.fetchall()
-
-
-    def custom_command(self, command):
-        self.cur.execute(command)
-        self.con.commit()
-        return self.cur.fetchall()
+    # def get_value(self, tableName, argument, selector, value):
+    #     self.cur.execute("SELECT {1} from {0} where {2} = \'{3}\';".format(tableName, argument, selector, value))
+    #     self.con.commit()
+    #     return self.cur.fetchall()[0][0]
+    #
+    # def update(self, tableName, argument, selector, newValue, findValue):
+    #     self.cur.execute("UPDATE {0} set {1} = \'{3}\' where {2} = \'{4}\';".format(tableName, argument, selector, newValue, findValue))
+    #     self.con.commit()
+    #     return True
+    #
+    # def remove(self, tableName, selector, value):
+    #     self.cur.execute("DELETE from {0} where {1} = \'{2}\';".format(tableName, selector, value))
+    #     self.con.commit()
+    #     return True
+    #
+    # def get_all(self, tableName):
+    #     self.cur.execute("SELECT * from {0};".format(tableName))
+    #     self.con.commit()
+    #     return self.cur.fetchall()
+    #
+    #
+    # def custom_command(self, command):
+    #     self.cur.execute(command)
+    #     self.con.commit()
+    #     return self.cur.fetchall()
