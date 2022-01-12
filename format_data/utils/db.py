@@ -14,7 +14,6 @@ class Database:
                                     )
 
         self.cur = self.con.cursor()
-        print("Database opened successfully")
 
 
     def insert(self, tableName, *values):
@@ -45,7 +44,7 @@ class Database:
     #     return self.cur.fetchall()
     #
     #
-    # def custom_command(self, command):
-    #     self.cur.execute(command)
-    #     self.con.commit()
-    #     return self.cur.fetchall()
+    def custom_command(self, command):
+        self.cur.execute(command)
+        self.con.commit()
+        return self.cur.fetchall()
